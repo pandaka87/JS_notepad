@@ -9,8 +9,15 @@ const MarkdownInput = ({handleMarkdownInput}) => {
     e.preventDefault();
   }
 
-  return <form >
-    <input type='textarea' onChange={handleChange} value={search}></input>
+  const handleSubmit = (e) => {
+    console.log(e)
+    localStorage.setItem(localStorage.length, search)
+    e.preventDefault();
+  }
+
+  return <form onSubmit={handleSubmit} >
+    <input type='textarea' onChange={handleChange} value={search}></input><br></br>
+    <input type="submit"  value='Save'></input>
   </form>
 }
 
