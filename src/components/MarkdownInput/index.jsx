@@ -26,12 +26,11 @@ const MarkdownInput = ({handleMarkdownInput}) => {
       localStorage.setItem(`${localStorage.length}`, title + '++' + text);
     }
     e.preventDefault();
-    // console.log(localStorage.getItem(`${localStorage.length - 1}`))
   }
 
   return <form onSubmit={handleSubmit} >
-    <input type='text' onChange={handleChangeTitle} value={title} placeholder='Add a title'></input><br></br>
-    <input type='textarea' onChange={handleChangeText} value={text} placeholder='Add your note here'></input><br></br>
+    <input type='text' onChange={handleChangeTitle} value={title} placeholder='Give a title to your note'></input><br></br>
+    <textarea onChange={handleChangeText} value={text} rows="5" cols="33" placeholder='Type your note here'></textarea><br></br>
     <p>{error}</p>
     <input type="submit" value='Save'></input>
   </form>

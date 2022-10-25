@@ -1,9 +1,13 @@
-const Note = ({note}) => {
+const Note = ({note, handleClickOnExistingNote}) => {
   const [title, text] = note.value.split('++');
-  
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    handleClickOnExistingNote();
+  }
+
   return <div>
-    <p>Title:{title}</p>
-    <p>Content:{text}</p>
+    <a href ='' onClick={handleClick}>Title:{title}<br></br>Content:{text}</a>
   </div>
 }
 

@@ -13,11 +13,15 @@ function App() {
     setText(str2);
   }
 
+  const handleClickOnExistingNote = () => {
+    console.log('coucou');
+  }
+
   return (
     <div className="App">
       <NoteDisplay title={title} text={text}/>
       <MarkdownInput handleMarkdownInput={handleMarkdownInput}/>
-      <Sidebar />
+      <Sidebar handleClickOnExistingNote={handleClickOnExistingNote}/>
     </div>
   )
 }

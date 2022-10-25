@@ -1,6 +1,6 @@
 import Note from '../Note'
 
-const Sidebar = () => {
+const Sidebar = ({handleClickOnExistingNote}) => {
   const notes = () => {
     let ary = [];
     for(let i = 0; i < localStorage.length; i ++){
@@ -11,7 +11,7 @@ const Sidebar = () => {
 
   return <div>
     {notes().map((note) => 
-      (<Note key={note.id} note={note} />)
+      <Note key={note.id} note={note} handleClickOnExistingNote={handleClickOnExistingNote}/>
       )}
   </div>
 }
