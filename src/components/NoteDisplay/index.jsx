@@ -8,7 +8,7 @@ const NoteDisplay = ({title, text}) => {
   return (
   <div id='note-display'>
     <div id='title' dangerouslySetInnerHTML={titleContent}></div>
-    <div id='note' dangerouslySetInnerHTML={textContent}></div>
+    <div class='note' dangerouslySetInnerHTML={textContent}></div>
   </div>
   )
 }

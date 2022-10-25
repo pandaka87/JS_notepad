@@ -1,5 +1,7 @@
 const Note = ({note, handleClickOnExistingNote}) => {
   const [title, text] = note.value.split('++');
+  // const titleContent = {__html: converter.makeHtml(title)};
+  // const textContent = {__html: converter.makeHtml(text)};
 
   const handleClick = (e) => {
     e.preventDefault();
