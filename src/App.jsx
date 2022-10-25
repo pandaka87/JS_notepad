@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect} from 'react'
+import './App.scss'
 import MarkdownInput from './components/MarkdownInput'
 import NoteDisplay from './components/NoteDisplay'
 import Sidebar from './components/Sidebar'
@@ -7,22 +7,27 @@ import Sidebar from './components/Sidebar'
 function App() {
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
+  const [existingNote, setExistingNote] = useState(null)
 
   const handleMarkdownInput = ([str1, str2]) => {
+    console.count()
     setTitle(str1);
     setText(str2);
+    setExistingNote(null);
   }
 
-  const handleClickOnExistingNote = () => {
-    console.log('coucou');
+  const handleClickOnExistingNote = (note) => {
+    setExistingNote(note);
   }
 
   return (
-    <div className="App">
+    <>
+    <Sidebar handleClickOnExistingNote={handleClickOnExistingNote}/>
+    <div id='display-container'>
       <NoteDisplay title={title} text={text}/>
-      <MarkdownInput handleMarkdownInput={handleMarkdownInput}/>
-      <Sidebar handleClickOnExistingNote={handleClickOnExistingNote}/>
+      <MarkdownInput existingNote={existingNote} handleMarkdownInput={handleMarkdownInput}/>
     </div>
+    </>
   )
 }
 

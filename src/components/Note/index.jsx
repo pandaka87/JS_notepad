@@ -3,11 +3,12 @@ const Note = ({note, handleClickOnExistingNote}) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    handleClickOnExistingNote();
+    handleClickOnExistingNote(note);
   }
 
   return <div>
-    <a href ='' onClick={handleClick}>Title:{title}<br></br>Content:{text}</a>
+    <a href ='' onClick={handleClick}>{title}</a><br />
+    <a href ='' onClick={handleClick}>{text}</a>
   </div>
 }
 
