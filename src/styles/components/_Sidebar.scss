@@ -3,5 +3,26 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+}
+
+a {
+  text-decoration: none;
+  font-family: $text-font;
+  width: 100%;
+}
+
+a:hover {
+  background-color: $accent-background;
+}
+
+#title {
+  color: $title-color;
+  font-size: $title-font-size;
+  font-weight: bold;
+}
+
+#note {
+  color: $text-color;
+  font-size: $text-font-size;
 }

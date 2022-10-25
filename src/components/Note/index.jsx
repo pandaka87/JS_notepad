@@ -7,8 +7,8 @@ const Note = ({note, handleClickOnExistingNote}) => {
   }
 
   return <div>
-    <a href ='' onClick={handleClick}>{title}</a><br />
-    <a href ='' onClick={handleClick}>{text}</a>
+    <a href ='' onClick={handleClick} id='title'>{title}</a><br/>
+    <a href ='' onClick={handleClick} id='note'>{text}</a>
   </div>
 }
 
