@@ -1,31 +1,39 @@
 import { useState } from 'react';
 
 const MarkdownInput = ({handleMarkdownInput}) => {
-  const [search, setSearch] = useState('');
+  const [text, setText] = useState('');
+  const [title, setTitle] = useState('');
   const [error, setError] = useState(null)
 
-  const handleChange = (e) => {
-    setSearch(e.target.value);
+  const handleChangeText = (e) => {
+    setText(e.target.value);
     setError(null)
-    handleMarkdownInput(e.target.value);
+    handleMarkdownInput([title, e.target.value]);
+    e.preventDefault();
+  }
+  const handleChangeTitle = (e) => {
+    setTitle(e.target.value);
+    setError(null)
+    handleMarkdownInput([e.target.value, text]);
     e.preventDefault();
   }
 
   const handleSubmit = (e) => {
-    if(search === ''){
-      setError('La note est vide')
+    if(title === ''){
+      setError("Title can't be blank")
     }else{
       setError(null)
-      localStorage.setItem(`${localStorage.length}`, search);
+      localStorage.setItem(`${localStorage.length}`, title + '++' + text);
     }
     e.preventDefault();
     // console.log(localStorage.getItem(`${localStorage.length - 1}`))
   }
 
   return <form onSubmit={handleSubmit} >
-    <input type='textarea' onChange={handleChange} value={search}></input><br></br>
+    <input type='text' onChange={handleChangeTitle} value={title} placeholder='Add a title'></input><br></br>
+    <input type='textarea' onChange={handleChangeText} value={text} placeholder='Add your note here'></input><br></br>
     <p>{error}</p>
-    <input type="submit"  value='Save'></input>
+    <input type="submit" value='Save'></input>
   </form>
 }
 
